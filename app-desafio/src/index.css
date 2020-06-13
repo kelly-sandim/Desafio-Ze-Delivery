@@ -6,7 +6,7 @@ body {
 .header {
   overflow: hidden;
   background-color: #242424;
-  padding: 20px 10px;
+  padding: 10px;
 }
 
 /* Style the header links */
@@ -57,12 +57,26 @@ body {
 }
 
 .imageLogo {
-    max-width: 35%;
+    max-width: 25%;
 }
 
 .inputCity {
     background-image: url('./assets/people-and-drinks.jpg');
     background-repeat: no-repeat;
+    background-position-y: center;
     background-size: cover;
-    height: 60vh;
+    height: 80vh;
+}
+
+.inputCity input {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer {
+  background-color: #242424;
+  height: 30vh;
 }
