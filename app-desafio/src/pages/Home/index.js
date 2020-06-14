@@ -16,11 +16,14 @@ function Home() {
 
           {/* Input */}
           <div className="inputCity">
-            <input type="text"/>
+            <div className="inputBlock">
+              <h1>Bebidas geladas a preço de mercado na sua casa agora</h1>
+              <input type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
+            </div>
           </div>
 
           {/* Footer */}
-          <div className="footer">
+          <div className="footerDiv">
           <div className="content">
             <div className="footer-grids">
                   <div className="footer one">

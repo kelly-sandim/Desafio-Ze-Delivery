@@ -20,7 +20,7 @@ function Products() {
             </div>
 
             {/* Footer */}
-            <div className="footer">
+            <div className="footerDiv">
                 <div className="content">
                     <div className="footer-grids">
                         <div className="footer one">
