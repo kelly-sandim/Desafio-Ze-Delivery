@@ -3,14 +3,14 @@ import ZeLogo from '../../assets/white-logo.svg';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function App() {
+function Home() {
   return (          
       <>
           {/* Header */}
           <div className="header">
-              <a href="#" class="logo"><img className="imageLogo" src={ ZeLogo } alt="Logo Zé Delivery"/></a>
+              <a href="#" className="logo"><img className="imageLogo" src={ ZeLogo } alt="Logo Zé Delivery"/></a>
               <div className="header-right">
-                  <a className="active" href="#">Entar</a>                  
+                  <a className="active" href="#">Entrar</a>                  
               </div>
           </div>
 
@@ -27,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

@@ -25,6 +25,7 @@ body {
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
+  display: contents;
 }
 
 /* Change the background color on mouse-over */
@@ -57,7 +58,7 @@ body {
 }
 
 .imageLogo {
-    max-width: 25%;
+    max-width: 15%;
 }
 
 .inputCity {
