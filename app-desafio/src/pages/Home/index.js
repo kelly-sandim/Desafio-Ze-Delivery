@@ -21,7 +21,7 @@ function Home() {
 
           {/* Footer */}
           <div className="footer">
-
+            
           </div>
       </>
   );

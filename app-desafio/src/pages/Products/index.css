@@ -61,4 +61,8 @@ body {
       max-width: 5%;
   }
   
-  
+  .footer {
+    background-color: #ffcc00;
+    height: 30vh;
+    color: #242424;
+  }
