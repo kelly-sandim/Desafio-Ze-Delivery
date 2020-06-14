@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+
 /* Style the header with a grey background and some padding */
 body {
   margin: 0;
 }
 
-.header {
+.header {  
+  font-family: 'Lato', sans-serif;
   overflow: hidden;
   background-color: #242424;
-  padding: 10px;
+  padding: 10px 100px;
 }
 
 /* Style the header links */
@@ -62,6 +66,7 @@ body {
 }
 
 .inputCity {
+    font-family: 'Lato', sans-serif;
     background-image: url('../../assets/people-and-drinks-edited.jpg');
     background-repeat: no-repeat;
     background-position-y: center;
@@ -92,10 +97,7 @@ body {
   margin-bottom: 10px;
 }
 
-.footerDiv {
-  background-color: #ffcc00;  
-  color: #242424;
-}
+
 
 
 /*--
@@ -146,7 +148,7 @@ label{
 /*-- main --*/
 
 .footerDiv h1{
-	font-family: 'Viga', sans-serif;
+	
     font-size: 36px;
     text-align: center;
     color: #fff;
@@ -162,7 +164,7 @@ label{
     padding: 3em 3em;
 }
 p.footer-gd {
-    color: #908F8F;
+    color: #242424;
     font-weight: 500;
 	font-size:14px;
 }
@@ -180,7 +182,7 @@ p.footer-gd a:hover {
     color: #fff;
     font-weight: 500;
     margin-bottom: 32px;
-    font-family: 'Viga', sans-serif;
+    
 }
 .footer.one {
     width: 37%;
@@ -195,7 +197,7 @@ p.adam{
     width: 23%;
 }
 .footer.one p{
-	color:#908F8F;
+	color:#242424;
 	line-height:2em;
 	font-size:14px;
 }
@@ -214,7 +216,7 @@ p.adam{
 	font-size:14px;
 }
 .footer.two ul li a{
-color:#908F8F;	
+color:#242424;	
 display:block;
 }
 .footer.two ul li a.fb {
@@ -240,7 +242,7 @@ display:block;
 .footer.three ul li {
     list-style-type: none;
     display: block;
-    color: #908F8F;
+    color: #242424;
     font-size: 14px;
     line-height: 2.5em;
 }
@@ -259,7 +261,7 @@ display:block;
     background: url('../../assets/icon1.png') no-repeat 0px 6px;
     padding-left: 38px;
     display: block;
-	color:#908F8F;
+	color:#242424;
 }
 .copy-right-grids {
 	padding: 20px 20px;
@@ -279,7 +281,7 @@ display:block;
     padding: 0 12px;
 }
 .copy-right ul li a {
-    color: #908F8F;
+    color: #242424;
 	font-size:13px;
 }
 .copy-right ul li:nth-child(1) {
@@ -526,4 +528,11 @@ display:block;
 	.footerDiv {
 		padding: 50px 0;
 	}	
+}
+
+
+.footerDiv {
+  font-family: 'Lato', sans-serif;
+  background-color: #ffcc00;  
+  color: #242424;
 }
