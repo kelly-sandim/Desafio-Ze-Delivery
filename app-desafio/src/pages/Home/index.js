@@ -17,7 +17,7 @@ function Home() {
           {/* Input */}
           <div className="inputCity">
             <div className="inputBlock">
-              <h1>Bebidas geladas a preço de mercado na sua casa agora</h1>
+              <h1><b>Bebidas geladas</b> a <b>preço de mercado</b> na sua casa <b>agora</b></h1>
               <input type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
             </div>
           </div>
