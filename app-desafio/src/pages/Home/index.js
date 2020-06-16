@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ZeLogo from '../../assets/white-logo.svg';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Home() {
   return (          
@@ -18,7 +20,10 @@ function Home() {
           <div className="inputCity">
             <div className="inputBlock">
               <h1><b>Bebidas geladas</b> a <b>preço de mercado</b> na sua casa <b>agora</b></h1>
-              <input type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
+              <div className="inputContainer">
+                <FontAwesomeIcon className="icon" icon={faMapMarker} />
+                <input className="inputField" type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
+              </div>
             </div>
           </div>
 
