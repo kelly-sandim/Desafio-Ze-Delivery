@@ -116,6 +116,20 @@ body {
 	text-align: center;
 	position: absolute; 
   }
+
+  .searchIcon {
+	padding: 10px;	
+	color: #242424;
+	min-width: 50px;
+	min-height: 25px;
+	text-align: center;	
+  }
+
+  .searchButton {
+	  background-color: #ffcc00;
+	  border: 1px solid;
+	  border-color: #ffcc00;
+  }
   
 
 
