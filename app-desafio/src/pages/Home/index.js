@@ -5,9 +5,10 @@ import './index.css';
 import { faMapMarker, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-
+import { useHistory } from 'react-router-dom';
 
 function Home() {
+    const history = useHistory();
     const [ placeInput, setPlace ] = useState('');
 
     async function getCoordinates() {
@@ -38,15 +39,16 @@ function Home() {
 
 
                 //Agora chama o GraphQL
-                callZeApi(placeLatitude, placeLongidute);               
+                getPlaceId(placeLatitude, placeLongidute);               
                 
             }).catch(error => {
               console.log(error);
             });
     }
 
-    async function callZeApi(placeLatitude, placeLongidute) {
+    async function getPlaceId(placeLatitude, placeLongidute) {
         let now = new Date();
+        let placeId;
 
         //2017-08-01T20:00:00.000Z
         console.log(now);
@@ -116,11 +118,91 @@ function Home() {
                 }
             }
           }).then((result) => {
-            console.log(result.data)
+
+            const placeResult = result.data;
+            console.log(placeResult);
+            const placeIds = [];
+            placeResult.data.pocSearch.map((place) => {
+                placeIds.push(place.id);
+            });
+            //Pega o primeiro resultado
+            placeId = placeIds[0];            
+            
+            //pega os produtos agora
+            getProductData(placeId);
+
           }).catch(error => {
             console.log(error);
           });
     }
+
+
+    async function getProductData(placeId) {
+        console.log(placeId);
+
+        await axios({
+            url: 'https://api.code-challenge.ze.delivery/public/graphql',
+            method: 'post',
+            data: {
+                query: `
+                    query poc($id: ID!, $categoryId: Int, $search: String){
+                        poc(id: $id) {
+                        id
+                        products(categoryId: $categoryId, search: $search) {
+                            id
+                            title
+                            rgb
+                            images {
+                            url
+                            }
+                            productVariants {
+                            availableDate
+                            productVariantId
+                            price
+                            inventoryItemId
+                            shortDescription
+                            title
+                            published
+                            volume
+                            volumeUnit
+                            description
+                            subtitle
+                            components {
+                                id
+                                productVariantId
+                                productVariant {
+                                id
+                                title
+                                description
+                                shortDescription
+                                }
+                            }
+                            }
+                        }
+                        }
+                    }
+                `,
+                variables: 
+                {
+                    "id": placeId,
+                    "search": "",
+                    "categoryId": null
+                }
+            }
+            }).then((result) => {                     
+                console.log(result.data);
+                //carrega os dados no localStorage
+
+                //chama a página de produtos
+                history.push('/products');
+            
+            }).catch(error => {
+            console.log(error);
+            });
+        
+    }
+
+
 
     return (          
         <>
