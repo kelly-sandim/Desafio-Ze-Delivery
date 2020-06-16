@@ -10,14 +10,14 @@ import axios from 'axios';
 function Home() {
     const [ placeInput, setPlace ] = useState('');
 
-    async function getCoordinates(placeInput) {
+    async function getCoordinates() {
         console.log(placeInput)
         const params = {
-            access_key: '2a1814e12b6078b3aaa59e0b6ead4907',
-            query: placeInput
+            key: 'AIzaSyC2sCo0-tuYIMTcmPN-nrJM1biXiTVe3e8',
+            address: placeInput
           }
           
-          await axios.get('https://api.positionstack.com/v1/forward', {params})
+          await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {params})
             .then(response => {
               console.log(response.data);
             }).catch(error => {
@@ -41,8 +41,8 @@ function Home() {
                 <h1><b>Bebidas geladas</b> a <b>preço de mercado</b> na sua casa <b>agora</b></h1>
                 <div className="inputContainer">
                     <FontAwesomeIcon className="icon" icon={faMapMarker} />
-                    <input onChange={ setPlace } className="inputField" type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
-                    <button onClick={ getCoordinates(placeInput)} className="searchButton"><FontAwesomeIcon className="searchIcon" icon={faSearch} /></button>
+                    <input onChange={ e => setPlace(e.target.value) } value={ placeInput } className="inputField" type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
+                    <button onClick={ getCoordinates } className="searchButton"><FontAwesomeIcon className="searchIcon" icon={faSearch} /></button>
                 </div>
                 </div>
             </div>
