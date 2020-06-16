@@ -190,8 +190,10 @@ function Home() {
                 }
             }
             }).then((result) => {                     
-                console.log(result.data);
+                const productsResult = result.data;
+                                
                 //carrega os dados no localStorage
+                localStorage.setItem('productListJSON', JSON.stringify(productsResult.data.poc.products));
 
                 //chama a página de produtos
                 history.push('/products');
