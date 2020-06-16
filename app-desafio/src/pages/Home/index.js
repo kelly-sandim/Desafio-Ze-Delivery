@@ -24,6 +24,7 @@ function Home() {
                 <FontAwesomeIcon className="icon" icon={faMapMarker} />
                 <input className="inputField" type="text" placeholder="Insira o seu endereço para ver os produtos disponíveis" />
               </div>
+              
             </div>
           </div>
 
