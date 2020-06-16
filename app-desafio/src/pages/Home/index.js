@@ -11,7 +11,10 @@ function Home() {
     const [ placeInput, setPlace ] = useState('');
 
     async function getCoordinates() {
-        console.log(placeInput)
+        console.log(placeInput);
+        let placeLatitude;
+        let placeLongidute;
+
         const params = {
             key: 'AIzaSyC2sCo0-tuYIMTcmPN-nrJM1biXiTVe3e8',
             address: placeInput
@@ -19,7 +22,20 @@ function Home() {
           
           await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {params})
             .then(response => {
-              console.log(response.data);
+                const placeData = response.data;
+                const placeCoordinates = [];
+                placeData.results.map((place) => {
+                    placeCoordinates.push(place.geometry.location);
+                });
+                //Pega o primeiro resultado e transforma ele em Json
+                let jsonCoordinates = JSON.stringify(placeCoordinates[0]);
+                
+                //agora dá parse no Json para pegar os dados
+                let placeTrueCoordinates = JSON.parse(jsonCoordinates);
+                
+                placeLatitude = placeTrueCoordinates.lat;
+                placeLongidute = placeTrueCoordinates.lng;
+
             }).catch(error => {
               console.log(error);
             });
