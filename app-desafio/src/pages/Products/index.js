@@ -24,13 +24,13 @@ function Products() {
             </div>
 
             {/* Produtos */}
-            <div className="productList">
+            <div className="productList">                
                 <div className="card">
                     {
                         products.map(product => {
                             return (
                                 <>
-                                    <img src={ product.images[0].url } alt="Avatar" style={{width:"100%"}} />
+                                    <img src={ product.images[0].url } alt="Avatar" style={{width:"25%"}} />
                                     <div className="container">
                                         <h4><b>{ product.title }</b></h4>
                                         <p>{ product.productVariants[0].price }</p>
@@ -39,7 +39,7 @@ function Products() {
                             )
                         })
                     } 
-                </div>                
+                </div>                                  
             </div>
 
             {/* Footer */}
