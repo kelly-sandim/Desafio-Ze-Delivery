@@ -29,7 +29,7 @@ function Products() {
                     products.map(product => {
                         return (
                             <div className="card">                                
-                                <img src={ product.images[0].url } alt="Avatar" style={{width:"25%"}} />
+                                <img src={ product.images[0].url } alt="Avatar" style={{width:"100%"}} />
                                 <div className="container">
                                     <h4><b>{ product.title }</b></h4>
                                     <p>{ product.productVariants[0].price }</p>
