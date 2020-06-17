@@ -4,7 +4,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 function Products() {
-  return (          
+    const [ products, setProducts ] = useState([]);
+
+    useEffect(() => {
+        let productListJSON = localStorage.getItem('productListJSON');
+        productListJSON = JSON.parse(productListJSON);        
+        setProducts(productListJSON);
+        
+    }, []);
+
+    return (          
       <>
             {/* Header */}
             <div className="header">
@@ -16,27 +25,21 @@ function Products() {
 
             {/* Produtos */}
             <div className="productList">
-                <div class="card">
-                    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style={{width:"100%"}} />
-                    <div class="container">
-                        <h4><b>John Doe</b></h4>
-                        <p>Architect & Engineer</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style={{width:"100%"}} />
-                    <div class="container">
-                        <h4><b>John Doe</b></h4>
-                        <p>Architect & Engineer</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style={{width:"100%"}} />
-                    <div class="container">
-                        <h4><b>John Doe</b></h4>
-                        <p>Architect & Engineer</p>
-                    </div>
-                </div>
+                <div className="card">
+                    {
+                        products.map(product => {
+                            return (
+                                <>
+                                    <img src={ product.images[0].url } alt="Avatar" style={{width:"100%"}} />
+                                    <div className="container">
+                                        <h4><b>{ product.title }</b></h4>
+                                        <p>{ product.productVariants[0].price }</p>
+                                    </div>
+                                </>
+                            )
+                        })
+                    } 
+                </div>                
             </div>
 
             {/* Footer */}
