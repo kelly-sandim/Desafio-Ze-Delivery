@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ZeSmallLogo from '../../assets/small-logo.svg';
 import ReactDOM from 'react-dom';
 import './index.css';
+import HeaderProducts from '../../components/HeaderProducts';
+import Footer from '../../components/Footer';
 
 function Products() {
     const [ products, setProducts ] = useState([]);
@@ -15,13 +16,7 @@ function Products() {
 
     return (          
       <>
-            {/* Header */}
-            <div className="header">
-                <a href="#" className="logo"><img className="imageLogoSmall" src={ ZeSmallLogo } alt="Logo Zé Delivery"/></a>
-                <div className="header-right">
-                    <a className="active" href="#">Entrar</a>                  
-                </div>
-            </div>
+            <HeaderProducts />
 
             {/* Produtos */}
             <div className="productList">                
@@ -40,7 +35,7 @@ function Products() {
                 }                 
             </div>
 
-            
+            <Footer />            
       </>
   );
 }
