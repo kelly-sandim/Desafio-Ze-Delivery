@@ -599,22 +599,55 @@ img {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Style the counter cards */
 .card {
-  width: 25%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
+    margin: 15px;
+    height: 425px;
+    font-family: 'Lato', sans-serif;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .card {
+    font-family: 'Lato', sans-serif;
     width: 100%;
     display: block;
     margin-bottom: 20px;
   }
+}
+
+.cartButton {
+    margin-top: 10px;
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #242424;
+    font-weight: bold;
+    font-size: 20px;
+    height: 35px;
+    border: 1px solid #ffcc00;
+    border-radius: 10px;
+}
+
+.productName {
+    color: #d8ad01;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.productPrice {
+    font-weight: bold;
+    font-size: 18px;
 }

@@ -36,10 +36,10 @@ function Page() {
                             <div className="card" key={ product.id }>                                
                                 <img src={ product.image } onError={e => addDefaultSrc(e)} alt="Avatar" style={{width:"100%"}} />
                                 <div className="container">
-                                    <h4><b>{ product.name }</b></h4>
-                                    <p>R$ { product.price }</p>
+                                    <h4 className="productName"> { product.name } </h4>
+                                    <p className="productPrice">R$ { product.price }</p>
                                 </div>
-                                <button onClick={() => addItem(product)}>
+                                <button className="cartButton" onClick={() => addItem(product)}>
                                     {alreadyAdded ? "Adicionar novamente" : "Adicionar ao Carrinho"}
                                 </button>
                             </div>
@@ -71,23 +71,28 @@ function Cart() {
           Carrinho ({totalItems} - R$ {cartTotal})
         </h1>
   
-        {!isEmpty && <button onClick={emptyCart}>Esvaziar Carrinho</button>}
+        {!isEmpty && <button className="cartButton" onClick={emptyCart}>Esvaziar Carrinho</button>}
   
         <ul>
           {items.map(item => (
             <li key={item.id}>
               {item.quantity} x {item.name}
               <button
+                className="cartButton"
                 onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
               >
                 -
               </button>
               <button
+                className="cartButton"
                 onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
               >
                 +
               </button>
-              <button onClick={() => removeItem(item.id)}>Remover &times;</button>
+              <button 
+                className="cartButton"
+                onClick={() => removeItem(item.id)}>Remover &times;
+              </button>
             </li>
           ))}
         </ul>
