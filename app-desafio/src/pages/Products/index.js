@@ -13,13 +13,17 @@ function Page() {
         let productListJSON = localStorage.getItem('productListJSON');
         productListJSON = JSON.parse(productListJSON);
         let originalProducts = [];    
-        productListJSON.map(product => {
+        productListJSON.map(product => {            
             originalProducts.push({ id: product.id, name: product.title, price: product.productVariants[0].price, image: product.images[0].url });            
         });        
         setProducts(originalProducts);
         
     }, []);
 
+    function addDefaultSrc(ev) {
+      ev.target.src = 'http://www.esquadriasesal.com.br/wp-content/uploads/2019/07/imagem-nao-disponivel-esal-esquadrias.jpg';
+    }
+    
     return (          
         <>       
             {/* Produtos */}
@@ -30,13 +34,13 @@ function Page() {
 
                         return (
                             <div className="card" key={ product.id }>                                
-                                <img src={ product.image } alt="Avatar" style={{width:"100%"}} />
+                                <img src={ product.image } onError={e => addDefaultSrc(e)} alt="Avatar" style={{width:"100%"}} />
                                 <div className="container">
                                     <h4><b>{ product.name }</b></h4>
-                                    <p>{ product.price }</p>
+                                    <p>R$ { product.price }</p>
                                 </div>
                                 <button onClick={() => addItem(product)}>
-                                    {alreadyAdded ? "Add again" : "Add to Cart"}
+                                    {alreadyAdded ? "Adicionar novamente" : "Adicionar ao Carrinho"}
                                 </button>
                             </div>
                         )
@@ -52,22 +56,22 @@ function Cart() {
     const {
       isEmpty,
       cartTotal,
-      totalUniqueItems,
+      totalItems,
       items,
       updateItemQuantity,
       removeItem,
       emptyCart
     } = useCart();
   
-    if (isEmpty) return <p>Your cart is empty</p>;
+    if (isEmpty) return <p>Seu Carrinho está vazio :(</p>;
   
     return (
       <>
         <h1>
-          Cart ({totalUniqueItems} - {cartTotal})
+          Carrinho ({totalItems} - R$ {cartTotal})
         </h1>
   
-        {!isEmpty && <button onClick={emptyCart}>Empty cart</button>}
+        {!isEmpty && <button onClick={emptyCart}>Esvaziar Carrinho</button>}
   
         <ul>
           {items.map(item => (
@@ -83,7 +87,7 @@ function Cart() {
               >
                 +
               </button>
-              <button onClick={() => removeItem(item.id)}>Remove &times;</button>
+              <button onClick={() => removeItem(item.id)}>Remover &times;</button>
             </li>
           ))}
         </ul>
@@ -97,9 +101,9 @@ function Products() {
         <>
             <HeaderProducts /> 
             <CartProvider
-                onItemAdd={item => console.log(`Item ${item.id} added!`)}
-                onItemUpdate={item => console.log(`Item ${item.id} updated.!`)}
-                onItemRemove={() => console.log(`Item removed!`)}
+                onItemAdd={item => console.log(`Item ${item.id} adicionado!`)}
+                onItemUpdate={item => console.log(`Item ${item.id} atualizado!`)}
+                onItemRemove={() => console.log(`Item removido!`)}
             >
                 <Cart />
                 <Page />
