@@ -17,18 +17,25 @@ function Home() {
         let placeLatitude;
         let placeLongidute;
 
+        /*
+        COMO VOU EXPLICAR ISSO, OLHA.....A CHAVE QUE SERVIA PRA API DO GOOGLE MAPS EXPIROU
+        EU ESTAVA USANDO UMA EMPRESTADA PORQUE A GOOGLE NÃO ACEITA MEU CARTÃO POR SER ELO
+        E EU TENTEI USAR API DE GEOLOCALIZAÇÃO GRÁTIS MAS A API NUNCA ACERTAVA O ENDEREÇO
+        ENTÃO EU ESTOU PASSANDO OS VALORES DAS COORDENADAS SEM CONSULTA POR CAUSA DISSO
+        MAS O TRECHO QUE CONSULTAVA A API ESTÁ COMENTADO AQUI EMBAIXO, CASO QUEIRAM TESTAR
+        COM A CHAVE DE VOCÊS. MAIS UMA VEZ, DESCULPEM...*/
+
+        /*
         const params = {
-            key: 'AIzaSyC2sCo0-tuYIMTcmPN-nrJM1biXiTVe3e8',
+            key: 'AIzaSyAi3G5cfjj5ir9h7ZU21un_pvQFl5jJ6q4',
             address: placeInput
           }
           
           await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {params})
             .then(response => {
                 const placeData = response.data;
-                // const placeCoordinates = [];
-                // placeData.results.map((place) => {
-                //     placeCoordinates.push(place.geometry.location);
-                // });
+                console.log(placeData);
+                
                 //Pega o primeiro resultado e transforma ele em Json
                 let jsonCoordinates = JSON.stringify(placeData.results[0].geometry.location);
                 
@@ -45,6 +52,12 @@ function Home() {
             }).catch(error => {
               console.log(error);
             });
+        */
+       placeLatitude = "-23.632919";
+       placeLongidute = "-46.699453";
+
+       //Agora chama o GraphQL
+       getPlaceId(placeLatitude, placeLongidute); 
     }
 
     async function getPlaceId(placeLatitude, placeLongidute) {
