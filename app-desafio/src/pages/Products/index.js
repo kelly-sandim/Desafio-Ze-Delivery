@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import '../../css/style.css';
 import HeaderProducts from '../../components/HeaderProducts';
 import Footer from '../../components/Footer';
 import { CartProvider, useCart } from "react-use-cart";
