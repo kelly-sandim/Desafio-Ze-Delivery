@@ -37,7 +37,7 @@ function Page() {
                                 <img src={ product.image } onError={e => addDefaultSrc(e)} alt="Avatar" style={{width:"100%"}} />
                                 <div className="container">
                                     <h4 className="productName"> { product.name } </h4>
-                                    <p className="productPrice">R$ { product.price }</p>
+                                    <p className="productPrice">R$ { (Math.round(product.price * 100) / 100).toFixed(2) }</p>
                                 </div>
                                 <button className="cartButton" onClick={() => addItem(product)}>
                                     {alreadyAdded ? "Adicionar novamente" : "Adicionar ao Carrinho"}
@@ -68,7 +68,7 @@ function Cart() {
     return (
       <>
         <h1>
-          Carrinho ({totalItems} - R$ {cartTotal})
+          Carrinho ({totalItems} - R$ { (Math.round(cartTotal * 100) / 100).toFixed(2)})
         </h1>
   
         {!isEmpty && <button className="cartButton" onClick={emptyCart}>Esvaziar Carrinho</button>}
