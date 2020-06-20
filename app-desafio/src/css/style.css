@@ -253,10 +253,12 @@ p.adam{
     color:#242424;	
     display: block;
 }
+
 .footer.two ul li .iconSocial {	
     padding: 10px 0 0 0;
     min-width: 50px;
     min-height: 25px;
+    color:#ffffff;
 }
 
 
@@ -308,7 +310,8 @@ p.adam{
 .copy-right ul li:nth-child(1) {
     border: none;
 }
-.footer.two ul li .iconSocial:hover {
+
+.footer.two ul li .iconSocial:hover {	
     color:#2e99ff;
 }
 
