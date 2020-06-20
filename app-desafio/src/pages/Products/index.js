@@ -5,6 +5,7 @@ import HeaderProducts from '../../components/HeaderProducts';
 import Footer from '../../components/Footer';
 import { CartProvider, useCart } from "react-use-cart";
 
+
 function Page() {
     const [ products, setProducts ] = useState([]);
     const { addItem, inCart } = useCart();
@@ -52,68 +53,20 @@ function Page() {
     );
 }
 
-function Cart() {
-    const {
-      isEmpty,
-      cartTotal,
-      totalItems,
-      items,
-      updateItemQuantity,
-      removeItem,
-      emptyCart
-    } = useCart();
-  
-    if (isEmpty) return <p>Seu Carrinho está vazio :(</p>;
-  
-    return (
-      <>
-        <h1>
-          Carrinho ({totalItems} - R$ { (Math.round(cartTotal * 100) / 100).toFixed(2)})
-        </h1>
-  
-        {!isEmpty && <button className="cartButton" onClick={emptyCart}>Esvaziar Carrinho</button>}
-  
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              {item.quantity} x {item.name}
-              <button
-                className="cartButton"
-                onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-              >
-                -
-              </button>
-              <button
-                className="cartButton"
-                onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-              >
-                +
-              </button>
-              <button 
-                className="cartButton"
-                onClick={() => removeItem(item.id)}>Remover &times;
-              </button>
-            </li>
-          ))}
-        </ul>
-      </>
-    );
-  }
 
 
 function Products() {
     return (
         <>
-            <HeaderProducts /> 
-            <CartProvider
-                onItemAdd={item => console.log(`Item ${item.id} adicionado!`)}
-                onItemUpdate={item => console.log(`Item ${item.id} atualizado!`)}
-                onItemRemove={() => console.log(`Item removido!`)}
-            >
-                <Cart />
-                <Page />
-            </CartProvider>
+          <CartProvider
+                  onItemAdd={item => console.log(`Item ${item.id} adicionado!`)}
+                  onItemUpdate={item => console.log(`Item ${item.id} atualizado!`)}
+                  onItemRemove={() => console.log(`Item removido!`)}
+          >
+            <HeaderProducts />                         
+            <Page />            
             <Footer /> 
+          </CartProvider>
         </>
     );
   }
