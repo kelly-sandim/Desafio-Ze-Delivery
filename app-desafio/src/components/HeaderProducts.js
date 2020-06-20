@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Counter from "./Counter";
-import CartScrollBar from "./CartScrollBar";
 import EmptyCart from "../empty-states/EmptyCart";
 import CSSTransitionGroup from "react-transition-group/CSSTransition";
 import { findDOMNode } from "react-dom";
