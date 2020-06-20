@@ -253,18 +253,12 @@ p.adam{
     color:#242424;	
     display: block;
 }
-.footer.two ul li a.fb {
-	background: url('../assets/social2.png') no-repeat 0px 4px;  
-    padding: 10px 0 12px 52px;
+.footer.two ul li .iconSocial {	
+    padding: 10px 0 0 0;
+    min-width: 50px;
+    min-height: 25px;
 }
-.footer.two ul li a.fb1 {
-	background: url('../assets/social1.png') no-repeat 0px 4px;
-    padding: 10px 0 12px 52px;
-}
-.footer.two ul li a.fb2 {
-    background: url('../assets/social3.png') no-repeat 0px 4px;
-    padding: 10px 0 12px 52px;
-}
+
 
 .footer.three ul li {
     list-style-type: none;
@@ -314,19 +308,15 @@ p.adam{
 .copy-right ul li:nth-child(1) {
     border: none;
 }
-.footer.two ul li a.fb:hover {
-    background: url('../assets/social3hover.png') no-repeat 0px 4px;
-}
-.footer.two ul li a.fb1:hover {
-    background: url('../assets/social2hover.png') no-repeat 0px 4px;
+.footer.two ul li .iconSocial:hover {
+    color:#2e99ff;
 }
 
-.footer.two ul li a.fb4:hover {
-    background: url('../assets/social1hover.png') no-repeat 0px 4px;
-}
 .footer.two ul li a:hover,.copy-right ul li a:hover,.footer.three ul li a:hover{
 	color:#2e99ff;
 }
+
+
 /*-- responsive media queries --*/
 
 @media (max-width: 1440px){
