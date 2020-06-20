@@ -50,17 +50,23 @@ body {
 }
 
 .cart-content {
+    display: none;
     color: #ffffff;
 }
 
 .cartIcon {
+    color: #ffffff;
     min-width: 50px;
     min-height: 25px;    
 }
 
+.cartIcon:hover { 
+    color: #ffcc00;
+}
+
 .imageItemCart {
     align-items: flex-end;
-    max-width: 7%;
+    width: 75px;
     margin-right: 5px;
 }
 
@@ -80,6 +86,7 @@ body {
 }
 
 .header-text {
+    color: #ffffff;
     font-weight: bold;
     text-align: right;
 }

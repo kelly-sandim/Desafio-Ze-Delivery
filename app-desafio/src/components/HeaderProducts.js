@@ -22,45 +22,58 @@ function Cart() {
     ev.target.src = 'http://www.esquadriasesal.com.br/wp-content/uploads/2019/07/imagem-nao-disponivel-esal-esquadrias.jpg';
   }
 
+  function displayList() {
+    var list = document.getElementById("cartList");
+    if (window.getComputedStyle(list).display === "none") {
+      document.getElementById("cartList").style.display = "block";
+    }
+    else {
+      document.getElementById("cartList").style.display = "none";
+    }
+  }
+
   if (isEmpty) return( 
-    <div className="header-right cart-content">
-      <p className="header-text"><FontAwesomeIcon className="cartIcon" icon={faShoppingCart} /> - Seu Carrinho está vazio :(</p>
-    </div>
+    <>
+      <p className="header-right header-text"><FontAwesomeIcon className="cartIcon" icon={faShoppingCart} onClick={ displayList } /> - Seu Carrinho está vazio :(</p>
+      <div className="header-right cart-content"></div>
+    </>
     );
 
   return (    
-    <div className="header-right cart-content">
-      <p className="header-text">
-      <FontAwesomeIcon className="cartIcon" icon={faShoppingCart} /> - {totalItems}  (Sub-total: R$ { (Math.round(cartTotal * 100) / 100).toFixed(2)})
+    <>
+      <p className="header-right header-text">
+      <FontAwesomeIcon className="cartIcon" icon={faShoppingCart} onClick={ displayList } /> - {totalItems}  (Sub-total: R$ { (Math.round(cartTotal * 100) / 100).toFixed(2)})
       </p>
+      <div id="cartList" className="header-right cart-content">
 
-      {!isEmpty && <button className="cartRemoveButton" onClick={emptyCart}>Esvaziar Carrinho</button>}
+        {!isEmpty && <button className="cartRemoveButton" onClick={emptyCart}>Esvaziar Carrinho</button>}
 
-      <ul className="ulCartItem">
-        {items.map(item => (
-          <li key={item.id } className="liCartItem">
-            <img className="imageItemCart" onError={e => addDefaultSrc(e)} src={ item.image } alt=""/>
-            <p className="cartItem">{item.quantity} x {item.name}</p>
-            <button
-              className="cartButton"
-              onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-            >
-              -
-            </button>
-            <button
-              className="cartButton"
-              onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-            >
-              +
-            </button>
-            <button 
-              className="cartRemoveButton"
-              onClick={() => removeItem(item.id)}>Remover &times;
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul className="ulCartItem">
+          {items.map(item => (
+            <li key={item.id } className="liCartItem">
+              <img className="imageItemCart" onError={e => addDefaultSrc(e)} src={ item.image } alt=""/>
+              <p className="cartItem">{item.quantity} x {item.name}</p>
+              <button
+                className="cartButton"
+                onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+              >
+                -
+              </button>
+              <button
+                className="cartButton"
+                onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+              >
+                +
+              </button>
+              <button 
+                className="cartRemoveButton"
+                onClick={() => removeItem(item.id)}>Remover &times;
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
