@@ -15,6 +15,7 @@ function Home() {
     const [ placeInput, setPlace ] = useState('');
 
     async function getCoordinates() {
+        document.getElementById("loader").style.display = "block";
         console.log(placeInput);
         let placeLatitude;
         let placeLongidute;        
@@ -43,7 +44,8 @@ function Home() {
                 getPlaceId(placeLatitude, placeLongidute);               
                 
             }).catch(error => {
-              console.log(error);
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("popup").style.display = "block";
             });
         
        /*
@@ -145,10 +147,12 @@ function Home() {
             }
 
             catch(e) {               
+                document.getElementById("loader").style.display = "none";
                 document.getElementById("popup").style.display = "block";
             }
 
           }).catch(error => {
+                document.getElementById("loader").style.display = "none";
                 document.getElementById("popup").style.display = "block";
           });
     }
@@ -212,16 +216,18 @@ function Home() {
                 try{                                
                     //carrega os dados no localStorage
                     localStorage.setItem('productListJSON', JSON.stringify(productsResult.data.poc.products));
-
+                    document.getElementById("loader").style.display = "none";
                     //chama a página de produtos
                     history.push('/products');
                 }
 
                 catch(e) {
+                    document.getElementById("loader").style.display = "none";
                     document.getElementById("popup").style.display = "block";
                 }
             
             }).catch(error => {
+                document.getElementById("loader").style.display = "none";
                 document.getElementById("popup").style.display = "block";
             });
         
