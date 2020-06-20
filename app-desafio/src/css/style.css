@@ -6,14 +6,15 @@ body {
 }
 
 .header {  
+    display: flex;
+    justify-content: space-between;
     font-family: 'Lato', sans-serif;
     overflow: hidden;
     background-color: #242424;
     padding: 10px 100px;
 }
 
-.header a {
-    float: left;
+.header a {    
     color: black;
     text-align: center;
     padding: 12px;
@@ -41,6 +42,11 @@ body {
 
 .header-right {
     float: right;
+}
+
+.header-left {
+    display: flex;
+    float: left;
 }
 
 .cart-content {
@@ -76,6 +82,16 @@ body {
 .header-text {
     font-weight: bold;
     text-align: right;
+}
+
+.address-one, .address-two {        
+    margin-left: 10px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.address-two {   
+    color: #ffcc00;
 }
 
 @media screen and (max-width: 500px) {

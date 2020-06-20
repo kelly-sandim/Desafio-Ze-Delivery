@@ -66,10 +66,8 @@ function Home() {
     async function getPlaceId(placeLatitude, placeLongidute) {
         let now = new Date();
         let placeId;
-
-        //2017-08-01T20:00:00.000Z
-        console.log(now);
-
+        let placeAddress;
+        
         await axios({
             url: 'https://api.code-challenge.ze.delivery/public/graphql',
             method: 'post',
@@ -140,10 +138,13 @@ function Home() {
             
             try {
                 //Pega o primeiro resultado
-                placeId = placeResult.data.pocSearch[0].id;            
+                placeId = placeResult.data.pocSearch[0].id;   
                 
+                //Pega o endereço
+                placeAddress = `${placeResult.data.pocSearch[0].address.address1}, ${placeResult.data.pocSearch[0].address.number} - ${placeResult.data.pocSearch[0].address.city}/${placeResult.data.pocSearch[0].address.province}`;
+                                
                 //pega os produtos agora
-                getProductData(placeId);
+                getProductData(placeId, placeAddress);
             }
 
             catch(e) {               
@@ -158,7 +159,7 @@ function Home() {
     }
 
 
-    async function getProductData(placeId) {
+    async function getProductData(placeId, placeAddress) {
         console.log(placeId);
 
         await axios({
@@ -216,7 +217,11 @@ function Home() {
                 try{                                
                     //carrega os dados no localStorage
                     localStorage.setItem('productListJSON', JSON.stringify(productsResult.data.poc.products));
+                    localStorage.setItem('placeAddress', placeAddress);
+
+                    //tira a div de carregamento
                     document.getElementById("loader").style.display = "none";
+
                     //chama a página de produtos
                     history.push('/products');
                 }

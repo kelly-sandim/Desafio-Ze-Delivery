@@ -71,7 +71,11 @@ class HeaderProducts extends Component {
       return (
         
           <header className="header">              
-              <a href="#" className="logo"><img className="imageLogoSmall" src={ ZeSmallLogo } alt="Logo Zé Delivery"/></a>                
+              <div className="header-left">
+                <a href="#" className="logo"><img className="imageLogoSmall" src={ ZeSmallLogo } alt="Logo Zé Delivery"/></a>                
+                <p className="address-one">Receber agora em</p>              
+                <p className="address-two">{ localStorage.getItem('placeAddress') }</p>
+              </div>
               <Cart />
           </header>
         
