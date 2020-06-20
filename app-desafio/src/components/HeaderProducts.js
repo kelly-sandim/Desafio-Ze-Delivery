@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import EmptyCart from "../empty-states/EmptyCart";
 import ZeSmallLogo from '../assets/small-logo.svg';
 import { useCart } from "react-use-cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

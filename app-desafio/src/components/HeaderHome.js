@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ZeLogo from '../assets/white-logo.svg';
 
 const HeaderHome = props => {

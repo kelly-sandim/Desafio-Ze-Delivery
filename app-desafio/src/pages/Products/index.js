@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
 import '../../css/style.css';
 import HeaderProducts from '../../components/HeaderProducts';
 import Footer from '../../components/Footer';
