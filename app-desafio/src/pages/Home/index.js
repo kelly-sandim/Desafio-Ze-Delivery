@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 import HeaderHome from "../../components/HeaderHome";
 import Footer from "../../components/Footer";
 import Modal from "../../components/Modal";
+import Loader from "../../components/Loader";
 
 function Home() {
     const history = useHistory();
@@ -247,6 +248,8 @@ function Home() {
             <Footer />
 
             <Modal />
+
+            <Loader />
         </>
     );
 }
