@@ -3,6 +3,7 @@
 Hello! First of all thank you so much for letting me try this challenge and learn more about this awesome tool that's GraphQL
 The project is organized as following:
  <br />
+ <br />
 ROOT <br />
 | <br />
 |----app-desafio - Folder where's the entire project <br />
@@ -25,3 +26,7 @@ There're some observations:
 - I had a problem with Google Maps's API Key while I was writing/testing the code, so, if it happens again, there's a commented part that pass a fixed pair of coordinates. 
 
 ### **Screenshots**
+![Home Page](https://i.imgur.com/ZYCnF87.jpg)
+![Products Page](https://i.imgur.com/lLC6AR5.jpg)
+![Loading Screen](https://i.imgur.com/T5YvU7l.jpg)
+![Error Pop-Up](https://i.imgur.com/XflQ6Gs.jpg)
