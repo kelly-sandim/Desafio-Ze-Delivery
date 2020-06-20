@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import HeaderHome from "../../components/HeaderHome";
 import Footer from "../../components/Footer";
+import Modal from "../../components/Modal";
 
 function Home() {
     const history = useHistory();
@@ -132,20 +133,22 @@ function Home() {
             }
           }).then((result) => {
 
-            const placeResult = result.data;
+            const placeResult = result.data;            
             
-            // const placeIds = [];
-            // placeResult.data.pocSearch.map((place) => {
-            //     placeIds.push(place.id);
-            // });
-            //Pega o primeiro resultado
-            placeId = placeResult.data.pocSearch[0].id;            
-            
-            //pega os produtos agora
-            getProductData(placeId);
+            try {
+                //Pega o primeiro resultado
+                placeId = placeResult.data.pocSearch[0].id;            
+                
+                //pega os produtos agora
+                getProductData(placeId);
+            }
+
+            catch(e) {               
+                document.getElementById("popup").style.display = "block";
+            }
 
           }).catch(error => {
-            console.log(error);
+                document.getElementById("popup").style.display = "block";
           });
     }
 
@@ -204,15 +207,21 @@ function Home() {
             }
             }).then((result) => {                     
                 const productsResult = result.data;
-                                
-                //carrega os dados no localStorage
-                localStorage.setItem('productListJSON', JSON.stringify(productsResult.data.poc.products));
 
-                //chama a página de produtos
-                history.push('/products');
+                try{                                
+                    //carrega os dados no localStorage
+                    localStorage.setItem('productListJSON', JSON.stringify(productsResult.data.poc.products));
+
+                    //chama a página de produtos
+                    history.push('/products');
+                }
+
+                catch(e) {
+                    document.getElementById("popup").style.display = "block";
+                }
             
             }).catch(error => {
-            console.log(error);
+                document.getElementById("popup").style.display = "block";
             });
         
     }
@@ -236,6 +245,8 @@ function Home() {
             </div>
             
             <Footer />
+
+            <Modal />
         </>
     );
 }

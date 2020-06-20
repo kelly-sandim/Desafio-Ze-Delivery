@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = props => {
     return (        
@@ -18,9 +19,9 @@ const Footer = props => {
                     <div className="footer two">
                         <h3>Nossos Canais</h3>
                         <ul>
-                            <li><a className="fb" href="#"><i></i>Curta nosso Face</a></li>
-                            <li><a className="fb1" href="#"><i></i>Siga-nos no Twitter</a></li>
-                            <li><a className="fb2" href="#"><i></i>Siga-nos no Instagram</a></li>                            
+                            <li><a className="fb" href="#"><FontAwesomeIcon className="icon" icon={ faFacebook } />Curta nosso Face</a></li>
+                            <li><a className="fb1" href="#"><FontAwesomeIcon className="icon" icon={ faInstagram } />Siga-nos no Twitter</a></li>
+                            <li><a className="fb2" href="#"><FontAwesomeIcon className="icon" icon={ faTwitter } />Siga-nos no Instagram</a></li>                            
                         </ul>
                     </div>
                     <div className="footer three">
