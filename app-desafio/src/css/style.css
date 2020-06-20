@@ -43,6 +43,14 @@ body {
     float: right;
 }
 
+.cart-content {
+    color: #ffffff;
+}
+
+.cartIcon {
+    min-width: 50px;
+    min-height: 25px;    
+}
 
 @media screen and (max-width: 500px) {
     .header a {
