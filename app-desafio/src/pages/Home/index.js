@@ -19,47 +19,41 @@ function Home() {
         let placeLatitude;
         let placeLongidute;        
         
-        const params = {
-            key: 'AIzaSyAi3G5cfjj5ir9h7ZU21un_pvQFl5jJ6q4',
-            address: placeInput
-          }
+        // const params = {
+        //     key: '<INSIRA SUA CHAVE DO GOOGLE MAPS API AQUI>',
+        //     address: placeInput
+        //   }
           
-          await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {params})
-            .then(response => {
-                const placeData = response.data;
-                console.log(placeData);
+        //   await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {params})
+        //     .then(response => {
+        //         const placeData = response.data;
+        //         console.log(placeData);
                 
-                //Pega o primeiro resultado e transforma ele em Json
-                let jsonCoordinates = JSON.stringify(placeData.results[0].geometry.location);
+        //         //Pega o primeiro resultado e transforma ele em Json
+        //         let jsonCoordinates = JSON.stringify(placeData.results[0].geometry.location);
                 
-                //agora dá parse no Json para pegar os dados
-                let placeTrueCoordinates = JSON.parse(jsonCoordinates);
+        //         //agora dá parse no Json para pegar os dados
+        //         let placeTrueCoordinates = JSON.parse(jsonCoordinates);
                 
-                placeLatitude = placeTrueCoordinates.lat;
-                placeLongidute = placeTrueCoordinates.lng;
+        //         placeLatitude = placeTrueCoordinates.lat;
+        //         placeLongidute = placeTrueCoordinates.lng;
 
 
-                //Agora chama o GraphQL
-                getPlaceId(placeLatitude, placeLongidute);               
+        //         //Agora chama o GraphQL
+        //         getPlaceId(placeLatitude, placeLongidute);               
                 
-            }).catch(error => {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("popup").style.display = "block";
-            });
+        //     }).catch(error => {
+        //         document.getElementById("loader").style.display = "none";
+        //         document.getElementById("popup").style.display = "block";
+        //     });
         
-       /*
-        POR FAVOR, CASO A CHAVE QUE SERVE PARA A API DO GOOGLE MAPS EXPIRAR NA HORA DOS TESTES
-        PODERIAM DESCOMENTAR E UTILIZAR O TRECHO ABAIXO?
-        EU ESTOU USANDO UMA EMPRESTADA PORQUE A GOOGLE NÃO ACEITA MEU CARTÃO POR SER ELO
-        E EU TENTEI USAR API DE GEOLOCALIZAÇÃO GRÁTIS MAS A API NUNCA ACERTAVA O ENDEREÇO
-        */
-
-       /*
-        placeLatitude = "-23.632919";
+       //Só para que possa ver que funciona. Só que aqui não vai dar falha se digitar um endereço que não
+       //exista na api       
+       placeLatitude = "-23.632919";
        placeLongidute = "-46.699453";
 
        //Agora chama o GraphQL
-       getPlaceId(placeLatitude, placeLongidute); */
+       getPlaceId(placeLatitude, placeLongidute);
     }
 
     async function getPlaceId(placeLatitude, placeLongidute) {
